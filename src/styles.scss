@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+@import './scss/styles-reset';
+
+@import './scss/colors';
+
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+// temas
+@import './scss/default-theme';
+// @import '~ngx-toastr/toastr.css';
+
+@import './scss/styles-reset.scss-theme';
+//clases tema
+@import './scss/class-theme';
+
+@mixin snackbar-cargando-app-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  .cargando-app {
+    .mat-simple-snackbar {
+      justify-content: center;
+      font-weight: bold;
+    }
+    color: mat-color($accent);
+  }
+}
+
+@mixin custom-components-theme($theme) {
+  @include app-styles-reset-theme($theme);
+  @include snackbar-cargando-app-theme($theme);
+  //clases
+  @include class-theme($theme);
+}
+
+@include angular-material-theme($app-default-theme);
+@include custom-components-theme($app-default-theme);

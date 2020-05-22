@@ -1,0 +1,172 @@
+@mixin class-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  // background: mat-color($primary);
+  // color: mat-color($primary, default-contrast);
+  .cl-primary,
+  .text-primary,
+  h2 {
+    color: mat-color($primary);
+  }
+  .cl-accent,
+  .text-accent {
+    color: mat-color($accent);
+  }
+  .cl-warn,
+  .text-warn {
+    color: mat-color($warn);
+  }
+
+  .card .titulo {
+    background-color: mat-color($accent);
+  }
+  .bg-primary {
+    background-color: mat-color($primary);
+  }
+}
+
+.cl-white,
+.text-white {
+  color: White;
+}
+.cl-success,
+.text-success {
+  color: $success;
+}
+.cl-info,
+.text-info {
+  color: $info;
+}
+.cl-warning,
+.text-warning {
+  color: $warning;
+}
+
+/************TAMAÑO FUENTES**************/
+.fs-11 {
+  font-size: 11px;
+}
+.fs-12 {
+  font-size: 12px;
+}
+.fs-13 {
+  font-size: 13px;
+}
+.fs-14 {
+  font-size: 14px;
+}
+.fs-15 {
+  font-size: 15px;
+}
+.fs-16 {
+  font-size: 16px;
+}
+.fw-300 {
+  font-weight: 300;
+}
+.fw-400 {
+  font-weight: 400;
+}
+.fw-500 {
+  font-weight: 500;
+}
+
+/***********************ESTILO NOTIFICACIONES**********************/
+.notifyok-title,
+.swalok-title {
+  font-weight: 300;
+  color: $success;
+}
+
+.notifyerror-title,
+.swalerror-title {
+  font-weight: 300;
+  color: $error;
+}
+.notifyinfo-title {
+  font-weight: 300;
+  color: $info;
+}
+.notifywarn-title {
+  font-weight: 300;
+  color: $warning;
+}
+.toast-success {
+  background-color: $success;
+}
+.toast-error {
+  background-color: $error;
+}
+.toast-info {
+  background-color: $info;
+}
+.toast-warning {
+  background-color: $warning;
+}
+.toast-progress {
+  background-color: rgb(255, 255, 255);
+  opacity: 0.7;
+}
+/******************************************************/
+.wd-full,
+.wd-100 {
+  width: 100%;
+}
+/**********************PADDING************************/
+.pd-0 {
+  padding: 0;
+}
+.pd-12 {
+  padding: 12px;
+}
+.pd-24 {
+  padding: 24px;
+}
+/****************************************************/
+.pointer {
+  cursor: pointer;
+}
+/********************elemnto a descargar archivo**************************/
+.a-link-file {
+  display: none;
+}
+
+/*****************************CARD************************************/
+.card .titulo {
+  color: white;
+  padding: 10px 15px !important;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.card .content {
+  font-size: 0.9em;
+  padding: 10px 15px !important;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12); // border-bottom-left-radius: 5px;
+  // border-bottom-right-radius: 5px;
+}
+
+.card .content hr {
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+.card .content p {
+  margin-bottom: 2px;
+  margin-top: 2px;
+}
+
+.card .content p label {
+  font-weight: 500;
+}
+
+.prueba:hover {
+  background-color: #de8a0c63;
+}

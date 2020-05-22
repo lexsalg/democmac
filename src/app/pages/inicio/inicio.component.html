@@ -1,0 +1,25 @@
+<mat-progress-bar *ngIf="loading"
+                  color="primary"
+                  mode="indeterminate"></mat-progress-bar>
+<div fxLayout="row wrap"
+     fxLayout.lt-md="column"
+     fxLayoutAlign="start center"
+     fxLayoutAlign.lt-md="">
+  <ng-container *ngFor="let item of items">
+
+    <a fxFlex="25"
+       fxFlex.lt-md="100"
+       routerLink="/{{item.link}}">
+      <mat-card class="bg-primary rect">
+        <mat-icon class="cl-white">{{item.icon}}</mat-icon>
+        <!-- <mat-icon svgIcon="{{item.icono}}"></mat-icon> -->
+        <p class="cl-white">{{item.name}}</p>
+      </mat-card>
+      <!-- <div class="rect bg-primary">
+        <mat-icon>{{item.Icono}}</mat-icon>
+        <p>{{item.nombreItem}}</p>
+      </div> -->
+    </a>
+  </ng-container>
+
+</div>

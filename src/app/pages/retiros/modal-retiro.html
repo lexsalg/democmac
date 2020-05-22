@@ -1,0 +1,69 @@
+<h1 mat-dialog-title>Cuentas Activas del Usuario</h1>
+<div mat-dialog-content>
+
+  <table mat-table [dataSource]="dataSource"
+         class="mat-elevation-z8 wd-full">
+
+    <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> Nro </th>
+      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="numero">
+      <th mat-header-cell *matHeaderCellDef> Nro Cuenta </th>
+      <td mat-cell *matCellDef="let element"> {{element.numero}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="relacion">
+      <th mat-header-cell *matHeaderCellDef> Relación </th>
+      <td mat-cell *matCellDef="let element"> {{element.relacion}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="estado">
+      <th mat-header-cell *matHeaderCellDef> Estado </th>
+      <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef> Acciones </th>
+
+      <td mat-cell *matCellDef="let element">
+
+        <button mat-icon-button (click)="dialogRef.close()">
+          <mat-icon class="cl-info">send</mat-icon>
+        </button>
+
+        <button mat-icon-button (click)="editar()">
+          <mat-icon class="cl-warning">edit</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" (click)="eliminar()">
+          <mat-icon class="cl-danger">delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+        class="pointer prueba"
+        (click)="dialogRef.close()"></tr>
+
+  </table>
+  <mat-divider> </mat-divider>
+</div>
+<mat-divider> </mat-divider>
+<div mat-mat-dialog-actions fxLayout="row" fxLayoutGap="12px"
+
+     style="padding-top: 8px;">
+
+  <button mat-raised-button color="accent" (click)="dialogRef.close()">
+    <span class="cl-white">Aceptar</span>
+  </button>
+  <button mat-raised-button (click)="dialogRef.close()">CANCELAR</button>
+</div>

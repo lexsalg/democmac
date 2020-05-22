@@ -1,0 +1,140 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h4 class="cl-danger">
+        Retiro
+      </h4>
+
+    </mat-card-title>
+    <!-- <mat-card-subtitle>subtitle</mat-card-subtitle> -->
+  </mat-card-header>
+  <mat-card-content>
+
+    <form class="wd-full" fxLayout="column" fxLayoutGap="8px">
+      <mat-progress-bar color="accent"
+                        *ngIf="loading"
+                        mode="indeterminate">
+      </mat-progress-bar>
+
+
+
+      <div fxLayout="row" fxLayoutGap="16px" class="mat-elevation-z4 pd-24">
+
+        <mat-form-field fxFlex="80%"
+                        appearance="outline">
+          <mat-label>Nombre Persona</mat-label>
+          <input type="text"
+                 placeholder="Ingrese Nombre de Persona"
+                 matInput
+                 [formControl]="myControl"
+                 [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let user of filteredOptions | async"
+                        [value]="user">
+              {{user}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <div style="padding-top:10px">
+          <button mat-raised-button color="accent" (click)="abrir()">
+            <mat-icon class="cl-white">search</mat-icon>
+            <span class="cl-white">Buscar Cuentas</span>
+          </button>
+        </div>
+      </div>
+
+
+      <div *ngIf="user" fxLayout="column" fxLayoutGap="16px"
+           class="mat-elevation-z4 pd-24">
+
+        <div fxLayout="row" fxLayoutGap="16px">
+          <mat-form-field appearance="fill" fxFlex="50%">
+            <mat-label>N° Cuenta</mat-label>
+            <input matInput value="{{user?.numero}}" readonly>
+            <mat-icon matPrefix>credit_card</mat-icon>
+            <mat-hint>Número de cuenta</mat-hint>
+          </mat-form-field>
+          <mat-form-field appearance="fill" fxFlex="50%">
+            <mat-label>Nombre Persona</mat-label>
+            <input matInput value="{{user?.nombre}}" readonly>
+            <mat-icon matPrefix>person</mat-icon>
+            <mat-hint>Nombre Persona</mat-hint>
+          </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutGap="16px">
+
+          <mat-form-field appearance="fill" fxFlex="50%">
+            <mat-label>Relación</mat-label>
+            <input matInput value="{{user?.relacion}}" readonly>
+            <mat-icon matPrefix>perm_identity</mat-icon>
+            <mat-hint>Relación con la Cta.</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" fxFlex="50%">
+            <mat-label>Tipo de Cuenta </mat-label>
+            <input matInput value="{{user?.tipo}}" readonly>
+            <mat-icon matPrefix>card_travel</mat-icon>
+            <mat-hint>Tipo</mat-hint>
+          </mat-form-field>
+        </div>
+
+
+      </div>
+
+      <div *ngIf="user" fxLayout="column" fxLayoutGap="16px"
+           class="mat-elevation-z4 pd-24">
+
+        <div fxLayout="row" fxLayoutGap="16px">
+
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Monto</mat-label>
+            <input matInput [(ngModel)]="monto" #ctrl="ngModel"
+                   type="number"
+                   [ngModelOptions]="{standalone:true}">
+            <span matPrefix>S/&nbsp;</span>
+            <mat-hint>Cantidad a retirar</mat-hint>
+          </mat-form-field>
+
+          <div fxLayout="column" fxFlex fxLayoutAlign="start end"
+               style="padding-top:6px">
+            <mat-checkbox labelPosition="before" (change)="itf($event.checked)">
+              ITF</mat-checkbox>
+            <mat-checkbox labelPosition="before" (change)="itf($event.checked)">
+              Permuta</mat-checkbox>
+          </div>
+          <!-- <mat-slide-toggle>ITF</mat-slide-toggle> -->
+
+          <mat-form-field appearance="outline" fxFlex="40%">
+            <mat-label>Total</mat-label>
+            <input matInput [(ngModel)]="monto" readonly
+                   [ngModelOptions]="{standalone:true}">
+            <!-- <span matPrefix>S/&nbsp;</span> -->
+            <mat-icon matPrefix>attach_money</mat-icon>
+
+            <mat-hint>Monto Total</mat-hint>
+          </mat-form-field>
+        </div>
+        <mat-form-field appearance="outline">
+          <mat-label>Glosa</mat-label>
+          <textarea matInput placeholder="Ingrese Descripción"></textarea>
+          <mat-icon matSuffix>description</mat-icon>
+          <mat-hint>Glosa Retiro</mat-hint>
+        </mat-form-field>
+
+        <div fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="space-between">
+          <button mat-raised-button color="accent" (click)="save()"
+                  [disabled]="monto<=0">
+            <mat-icon class="cl-white">save</mat-icon>
+            <span class="cl-white">GUARDAR</span>
+          </button>
+          <button mat-button (click)="cancelar()">CANCELAR</button>
+        </div>
+
+      </div>
+
+    </form>
+
+  </mat-card-content>
+
+</mat-card>

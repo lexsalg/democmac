@@ -1,0 +1,191 @@
+<mat-card>
+  <mat-card-header fxLayout="row" fxLayoutAlign="center center"
+                   fxFlexAlign="center">
+    <mat-card-title fxFlexAlign="center" class="cl-danger">Solicitud de Crédito
+      Reactiva Perú
+    </mat-card-title>
+    <!-- <mat-card-subtitle>subtitle</mat-card-subtitle> -->
+  </mat-card-header>
+
+  <mat-card-content>
+    <!-- <mat-progress-bar *ngIf="loading" color="accent" mode="indeterminate">
+      </mat-progress-bar> -->
+
+    <mat-vertical-stepper linear="true" #stepper>
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+
+          <ng-template matStepLabel>Verificar si puede acceder al crédito
+          </ng-template>
+
+          <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field hintLabel="Max 10  dígitos"
+                            appearance="outline"
+                            fxFlex="40%">
+              <mat-label>RUC</mat-label>
+              <input matInput placeholder="Digíte su RUC"
+                     formControlName="firstCtrl" required
+                     #input maxlength="10"
+                     type="number">
+              <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+            </mat-form-field>
+
+            <!-- <div>
+              <div fxLayout="row">
+                <mat-checkbox class="fs-12">He leído y acepto la</mat-checkbox>
+                <a href="" class="fs-12">
+                  Política de tratamiento de
+                  Protección de datos personales
+                </a>
+              </div>
+              <div fxLayout="row">
+                <mat-checkbox class="fs-12">Acepto los</mat-checkbox>
+                <a href="#" class="fs-12">Términos y Condiciones </a>
+              </div>
+            </div> -->
+            <div>
+              <div fxLayout="row">
+                <mat-checkbox class="fs-12">He leído y acepto la
+                  <a href="" class="fs-12">
+                    Política de tratamiento de
+                    Protección de datos personales
+                  </a>
+                </mat-checkbox>
+              </div>
+              <div fxLayout="row">
+                <mat-checkbox class="fs-12">Acepto los
+                  <a href="#" class="fs-12">Términos y Condiciones </a>
+                </mat-checkbox>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div>
+            <button mat-button matStepperNext>
+              <span>Siguiente</span>
+              <mat-icon>chevron_right</mat-icon>
+            </button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>Verificar monto del crédito
+          </ng-template>
+
+          <div fxLayout="row" fxLayoutGap="16px">
+
+            <mat-form-field appearance="outline"
+                            fxFlex="50%">
+              <mat-label>Ventas Anuales 2019(Sunat)</mat-label>
+              <span matPrefix>S/ &nbsp;</span>
+              <input matInput placeholder="Ingrese Monto"
+                     formControlName="secondCtrl" required
+                     type="number">
+            </mat-form-field>
+
+            <mat-form-field hintLabel="Max 10  dígitos"
+                            appearance="outline"
+                            fxFlex="50%">
+              <mat-label>Aporte anual EsSalud 2019</mat-label>
+              <span matPrefix>S/ &nbsp;</span>
+              <input matInput placeholder="Ingrese Monto" required
+                     type="number">
+            </mat-form-field>
+
+          </div>
+
+          <div>
+            <button mat-button matStepperPrevious>
+              <mat-icon>chevron_left</mat-icon>
+              <span>Anterior</span>
+            </button>
+
+            <button mat-button matStepperNext>
+              <span>Siguiente</span>
+              <mat-icon>chevron_right</mat-icon>
+            </button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+
+        <ng-template matStepLabel>Verificar si cumple con los requistos
+        </ng-template>
+
+        <mat-card>
+          <mat-card-header fxLayout="row" fxLayoutAlign="center center"
+                           fxFlexAlign="center">
+            <mat-card-title fxFlexAlign="center" class="cl-danger">Datos de
+              Contacto
+            </mat-card-title>
+
+          </mat-card-header>
+
+          <mat-card-content fxLayout="column">
+            <div fxLayout="row" fxLayoutGap="10px">
+              <mat-form-field appearance="outline" fxFlex="50%">
+                <mat-label>Tipo de Documento</mat-label>
+                <mat-select>
+                  <mat-option>None</mat-option>
+                  <mat-option value="option1">Dni </mat-option>
+                  <mat-option value="option2">Otro 2</mat-option>
+                  <mat-option value="option3">otro 2</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline"
+                              fxFlex="50%">
+                <mat-label>Número Documento</mat-label>
+                <input matInput placeholder="Ingrese Nro"
+                       required type="number">
+              </mat-form-field>
+            </div>
+
+
+            <div fxLayout="row">
+              <mat-form-field appearance="outline"
+                              fxFlex="50%">
+                <mat-label>Nro Celular</mat-label>
+                <input matInput placeholder="Ingrese Nro"
+                       required
+                       type="number">
+              </mat-form-field>
+
+              <mat-form-field appearance="outline"
+                              fxFlex="50%">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Ingrese Email" required
+                       type="texto">
+              </mat-form-field>
+
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <br>
+        <div>
+          <button mat-button matStepperPrevious>
+            <mat-icon>chevron_left</mat-icon>
+            <span>Anterior</span>
+          </button>
+
+          <button mat-button (click)="stepper.reset()">
+            <span>Enviar</span>
+
+            <mat-icon>save</mat-icon>
+          </button>
+        </div>
+      </mat-step>
+    </mat-vertical-stepper>
+
+
+  </mat-card-content>
+
+
+  <!-- <mat-card-actions>
+    <button mat-button>Ok</button>
+  </mat-card-actions> -->
+</mat-card>

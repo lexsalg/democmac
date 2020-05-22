@@ -1,0 +1,284 @@
+<mat-toolbar color="primary" class="mat-elevation-z10"
+             fxLayout="row" fxLayoutAlign="space-between">
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <!-- <a [routerLink]="['/pages']"> -->
+    <img src="assets/logo.png" alt="" class="mr-15i" [routerLink]="['/pages']">
+    <!-- </a> -->
+
+
+    <button mat-button class="mr-15i" [matMenuTriggerFor]="captaciones">
+      <mat-icon>date_range</mat-icon>
+      <span fxHide.xs="true"> Captaciones </span>
+    </button>
+    <!-- <button mat-button class="mr-15i" [matMenuTriggerFor]="colocaciones">
+      <mat-icon>dns</mat-icon>
+      <span fxHide.xs="true">Colocaciones</span>
+    </button>
+
+    <button mat-button class="mr-15i" [matMenuTriggerFor]="operaciones">
+      <mat-icon>dashboard</mat-icon>
+      <span fxHide.xs="true">Operaciones</span>
+    </button>
+
+    <button mat-button class="mr-15i" [matMenuTriggerFor]="sistema">
+      <mat-icon>account_balance_wallet</mat-icon>
+      <span fxHide.xs="true">Sistema</span>
+    </button> -->
+    <!-- <a mat-button class="mr-15i" [routerLink]="['/pages']">Créditos</a> -->
+    <!-- <a mat-button class="mr-15i" [routerLink]="['/pages']">Ahorros</a> -->
+    <mat-menu #captaciones="matMenu">
+
+      <button mat-menu-item>
+        <mat-icon>all_out</mat-icon>
+        <span> Aperturas </span>
+      </button>
+
+      <button mat-menu-item>
+        <mat-icon>all_out</mat-icon>
+        <span> Depósitos </span>
+      </button>
+
+      <button mat-menu-item [matMenuTriggerFor]="retiros">
+        <mat-icon>assessment</mat-icon>
+        <span>Retiros</span>
+      </button>
+
+      <button mat-menu-item>
+        <mat-icon>assessment</mat-icon>
+        <span>Cancelaciones</span>
+      </button>
+
+      <button mat-menu-item>
+        <mat-icon>assessment</mat-icon>
+        <span>Consulta de Saldos</span>
+      </button>
+
+      <button mat-menu-item>
+        <mat-icon>assessment</mat-icon>
+        <span>Consulta de Movimientos</span>
+      </button>
+
+      <!-- <button mat-menu-item>
+        <mat-icon>assignment_late</mat-icon>
+        <span>Mantenimiento</span>
+      </button>
+
+      <button mat-menu-item>
+        <mat-icon>bookmarks</mat-icon>
+        <span>Bloqueo/Desbloqueo</span>
+        <i class="material-icons"></i>
+      </button> -->
+    </mat-menu>
+
+
+    <mat-menu #retiros="matMenu">
+      <button mat-menu-item>
+        <span>... </span>
+      </button>
+      <button mat-menu-item [routerLink]="['/pages/retiros']">
+        <mat-icon>card_travel</mat-icon>
+        <span>Retiro sin Tarjeta </span>
+      </button>
+      <button mat-menu-item>
+        <span>... </span>
+      </button>
+    </mat-menu>
+
+    <mat-menu #depositos="matMenu">
+      <button mat-menu-item [routerLink]="['/pages']">
+        <mat-icon>card_travel</mat-icon>
+        <span>Retiro sin Tarjeta </span>
+      </button>
+      <button mat-menu-item>
+        <!-- <mat-icon>card_travel</mat-icon> -->
+        <span>...</span>
+      </button>
+    </mat-menu>
+
+
+
+    <mat-menu #colocaciones="matMenu">
+
+      <button mat-menu-item>
+        <mat-icon>class</mat-icon>
+        <span> Parámetros </span>
+      </button>
+
+      <button mat-menu-item>
+        <mat-icon>credit_card</mat-icon>
+        <span>Tasas de Interés</span>
+      </button>
+
+      <button mat-menu-item>
+        <mat-icon>event</mat-icon>
+        <span>Mantenimiento</span>
+      </button>
+
+      <button mat-menu-item>
+        <mat-icon>extension</mat-icon>
+        <span>Bloqueo/Desbloqueo</span>
+      </button>
+
+
+    </mat-menu>
+
+    <mat-menu #operaciones="matMenu">
+
+      <button mat-menu-item>
+        <mat-icon>all_out</mat-icon>
+        <span> Parámetros </span>
+      </button>
+
+      <button mat-menu-item>
+        <mat-icon>assessment</mat-icon>
+        <span>Tasas de Interés</span>
+      </button>
+
+      <button mat-menu-item>
+        <mat-icon>assignment_late</mat-icon>
+        <span>Mantenimiento</span>
+      </button>
+
+      <button mat-menu-item>
+        <mat-icon>bookmarks</mat-icon>
+        <span>Bloqueo/Desbloqueo</span>
+        <i class="material-icons"></i>
+      </button>
+
+      <i></i>
+    </mat-menu>
+    <mat-menu #sistema="matMenu">
+
+      <button mat-menu-item>
+        <mat-icon>all_out</mat-icon>
+        <span> Parámetros </span>
+      </button>
+
+      <button mat-menu-item>
+        <mat-icon>assessment</mat-icon>
+        <span>Tasas de Interés</span>
+      </button>
+
+      <button mat-menu-item>
+        <mat-icon>assignment_late</mat-icon>
+        <span>Mantenimiento</span>
+      </button>
+
+      <button mat-menu-item>
+        <mat-icon>bookmarks</mat-icon>
+        <span>Bloqueo/Desbloqueo</span>
+        <i class="material-icons"></i>
+      </button>
+
+      <i></i>
+    </mat-menu>
+
+
+    <mat-menu #menu="matMenu">
+
+      <button mat-menu-item [matMenuTriggerFor]="creditos">
+        <mat-icon>date_range</mat-icon>
+        <span> Créditos </span>
+      </button>
+
+      <button mat-menu-item [matMenuTriggerFor]="ahorros">
+        <mat-icon>dns</mat-icon>
+        <span>Ahorros</span>
+      </button>
+    </mat-menu>
+
+    <mat-menu #creditos="matMenu">
+      <button mat-menu-item>
+        <mat-icon>list_alt</mat-icon>
+        <span>Pre Solicitud</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>archive</mat-icon>
+        <span>Solicitud</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>forward</mat-icon>
+        <span>Desembolso</span>
+      </button>
+    </mat-menu>
+
+    <mat-menu #ahorros="matMenu">
+      <button mat-menu-item
+              [matMenuTriggerFor]="depositos">
+        <mat-icon>call_received</mat-icon>
+        <span>Depósitos </span>
+      </button>
+      <button mat-menu-item
+              [matMenuTriggerFor]="retiros">
+        <mat-icon>call_made</mat-icon>
+        <span>Retiros </span>
+      </button>
+    </mat-menu>
+
+    <mat-menu #depositos="matMenu">
+      <button mat-menu-item>
+        <mat-icon>filter_1</mat-icon>
+        <span>Plazo Fijo </span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>filter_2</mat-icon>
+        <span>Cuenta Corriente </span>
+      </button>
+    </mat-menu>
+
+    <!-- <mat-menu #retiros="matMenu">
+      <button mat-menu-item>
+        <mat-icon>looks_one</mat-icon>
+        <span>Cuenta Sueldo </span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>looks_two</mat-icon>
+        <span>Sin Tarjeta</span>
+      </button>
+    </mat-menu> -->
+
+    <!-- <a mat-button class="mr-15i" [routerLink]="['/pages/solicitar']">
+      <mat-icon>list_alt</mat-icon>
+      <span fxHide.xs="true">Solicitud</span>
+    </a> -->
+
+    <!-- <a mat-raised-button class="mr-15i" [routerLink]="['/pages/retiros']">
+      <mat-icon>assignment</mat-icon>
+      <span fxHide.xs="true" class="cl-danger"> Retiros </span>
+    </a> -->
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <a mat-button [routerLink]="['/login']">
+      <mat-icon>logout</mat-icon>
+      <span fxHide.xs="true" class="cl-danger"> Cerrar Sesión </span>
+    </a>
+
+  </div>
+
+
+
+</mat-toolbar>
+
+<div class="container">
+  <router-outlet class="container2"></router-outlet>
+</div>
+
+<mat-toolbar color="primary" class="footer">
+  <!-- <p class="uno line">
+    "La empresa tiene la obligación de difundir información de conformidad con
+    la Ley Nº 28587 y el Reglamento de Gestión de Conducta de Mercado del
+    Sistema Financiero, aprobado con Resolución SBS N° 3274-2017."
+  </p> -->
+
+  <p class="uno" align="center">
+    Dirección: Av. La Cultura 1624, Cusco-PerúCentral Telefónica: +51(84)606161
+    / +51 (84)237171
+  </p>
+
+
+  <p class="uno" align="end">
+    {{cajacusco}}
+  </p>
+
+</mat-toolbar>

@@ -1,0 +1,29 @@
+<!-- <mat-toolbar color="primary"
+             class="mat-elevation-z10">
+  <p class="fw-400">{{ titulo }}</p>
+</mat-toolbar> -->
+
+<div style="height: 48px;"></div>
+
+<div fxLayout="column" fxLayoutGap="10px" class="caja">
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <div fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center">
+
+      <img src="assets/logo.png"
+           class="margin-image">
+      <h3 class="mat-h1 cl-primary mg-0">Proyecto Captaciones Sicmac</h3>
+    </div>
+
+  </div>
+
+  <login-form (submitted)="onSubmit($event)"
+              [pending]="pending$ | async"
+              [errorMessage]="error$ | async">
+  </login-form>
+
+</div>
+
+<mat-toolbar color="primary"
+             class="footer">
+  <p class="fs-12 fw-300">{{ footer }}</p>
+</mat-toolbar>
